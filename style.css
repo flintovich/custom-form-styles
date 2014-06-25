@@ -98,3 +98,30 @@ input {
     background: #A8DBF0;
 }
 /* select END*/
+
+/* radio */
+.cf-radio{
+    margin: 10px;
+    overflow: hidden;
+}
+.cf-radio > div{
+    clear: both;
+    overflow: hidden;
+    margin: 5px 0;
+}
+.cfs-radio{
+    width: 40px;
+    height: 40px;
+    background: url(images/radio.png) no-repeat 0 100%;
+    float: left;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+}
+.cfs-radio.checked{
+    background-position: 0 0;
+}
+.cf-radio .cf-radio-text{
+    display: block;
+    margin: 10px 0 0;
+}
+/* radio END */

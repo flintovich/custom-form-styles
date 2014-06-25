@@ -2,7 +2,7 @@ $.noConflict();
 
 jQuery(document).ready(function ($) {
 
-    // selects
+    // select
     if($('.cf-select').length>0){
         $('.cf-select').each(function(index){
             $(this).addClass('cf-select-'+(index+1));
@@ -34,6 +34,19 @@ jQuery(document).ready(function ($) {
             $(this).parents('.cf-select').find('.cfs-select-current').text(cfsOptionText);
             $(this).parent('.cfs-select').slideUp(150).removeClass('open').addClass('close');
             $(this).parents('.cf-select').find('select').val(cfsOptionVal);
+        });
+    }
+
+    // radio
+    if($('.cf-radio').length>0){
+        $('.cf-radio').each(function(index){
+            $(this).addClass('cf-select-'+(index+1));
+            $(this).find('input[type=radio]').css('display','none').before('<div class="cfs-radio" />');
+        });
+
+        $('.cfs-radio').on('click', function(){
+            $(this).parents('.cf-radio').find('.cfs-radio').removeClass('checked').siblings('input[type="radio"]').removeAttr('checked');
+            $(this).addClass('checked').siblings('input[type="radio"]').attr('checked','checked');
         });
     }
 
