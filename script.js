@@ -2,9 +2,13 @@ $.noConflict();
 
 jQuery(document).ready(function ($) {
 
+    var cfSelect = $('.cf-select');
+    var cfRadio = $('.cf-radio');
+    var cfCheckbox = $('.cf-checkbox');
+
     // select
-    if($('.cf-select').length>0){
-        $('.cf-select').each(function(index){
+    if(cfSelect.length>0){
+        cfSelect.each(function(index){
             $(this).addClass('cf-select-'+(index+1));
             $(this).find("select").css('display','none').before('<div class="cfs-select close" />');
             var newSelect = $(this).find('.cfs-select');
@@ -38,15 +42,39 @@ jQuery(document).ready(function ($) {
     }
 
     // radio
-    if($('.cf-radio').length>0){
-        $('.cf-radio').each(function(index){
+    if(cfRadio.length>0){
+        cfRadio.each(function(index){
             $(this).addClass('cf-select-'+(index+1));
             $(this).find('input[type=radio]').css('display','none').before('<div class="cfs-radio" />');
+            $(this).find('input[type=radio]').each(function(){
+                if($(this).attr('checked')){
+                    $(this).prev('.cfs-radio').addClass('checked');
+                }
+            });
         });
-
         $('.cfs-radio').on('click', function(){
             $(this).parents('.cf-radio').find('.cfs-radio').removeClass('checked').siblings('input[type="radio"]').removeAttr('checked');
             $(this).addClass('checked').siblings('input[type="radio"]').attr('checked','checked');
+        });
+    }
+
+    // checkbox
+    if(cfCheckbox.length>0){
+        cfCheckbox.each(function(index){
+            $(this).addClass('cf-checkbox-'+(index+1));
+            $(this).find('input[type=checkbox]').css('display','none').before('<div class="cfs-checkbox" />');
+            $(this).find('input[type=checkbox]').each(function(){
+                if($(this).attr('checked')){
+                    $(this).prev('.cfs-checkbox').addClass('checked');
+                }
+            });
+        });
+        $('.cfs-checkbox').on('click', function(){
+            if($(this).hasClass('checked')){
+                $(this).removeClass('checked').next('input[type=checkbox]').removeAttr('checked');
+                return false
+            }
+            $(this).addClass('checked').next('input[type=checkbox]').attr('checked','checked');
         });
     }
 

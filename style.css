@@ -66,10 +66,12 @@ input {
 	overflow: hidden;	
 }
 
-/* select */
+/* select
+--------------------------------*/
 .cf-select{
     margin: 10px;
     width: 200px;
+    position: relative;
 }
 .cf-select .cfs-select-current{
     border: 1px solid #5f95e8;
@@ -85,6 +87,11 @@ input {
     background: -ms-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
     background: linear-gradient(to bottom,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
 }
+.cf-select .cfs-select{
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
 .cf-select .cfs-select.close{
     display: none;
 }
@@ -99,7 +106,8 @@ input {
 }
 /* select END*/
 
-/* radio */
+/* radio
+--------------------------------*/
 .cf-radio{
     margin: 10px;
     overflow: hidden;
@@ -125,3 +133,24 @@ input {
     margin: 10px 0 0;
 }
 /* radio END */
+
+
+/* checkbox
+--------------------------------*/
+.cf-checkbox > div{
+    clear: both;
+    overflow: hidden;
+    margin: 5px 0;
+}
+.cf-checkbox .cfs-checkbox{
+    width: 26px;
+    height: 26px;
+    background: url(images/checkbox.png) no-repeat 100% 0;
+    float: left;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+}
+.cfs-checkbox.checked{
+    background-position: 0 0;
+}
+/* checkbox END*/
